@@ -1,0 +1,382 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>M&A Brasil - Busca de Notícias de Fusões e Aquisições</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="mobile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>M&A Brasil</h1>
+            <p>Ferramenta de busca e organização de notícias de fusões e aquisições no Brasil</p>
+        </div>
+    </header>
+
+    <nav>
+        <div class="container">
+            <ul>
+                <li><a href="#introducao" class="active">Introdução</a></li>
+                <li><a href="#guia-busca">Guia de Busca</a></li>
+                <li><a href="#tabela-dados">Tabela de Dados</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <section id="introducao" class="active-section">
+                <h2>Introdução</h2>
+                <div class="card">
+                    <h3>Bem-vindo à Ferramenta de Busca de M&A Brasil</h3>
+                    <p>Esta ferramenta foi desenvolvida para auxiliar na busca e organização de notícias de fusões e aquisições (M&A) do Brasil, com foco em três fontes principais:</p>
+                    <div class="sources">
+                        <div class="source">
+                            <i class="fas fa-newspaper"></i>
+                            <h4>Pipeline Valor</h4>
+                        </div>
+                        <div class="source">
+                            <i class="fas fa-chart-line"></i>
+                            <h4>Valor Econômico</h4>
+                        </div>
+                        <div class="source">
+                            <i class="fas fa-handshake"></i>
+                            <h4>Fusões e Aquisições</h4>
+                        </div>
+                    </div>
+                    <p>Utilize esta ferramenta para:</p>
+                    <ul>
+                        <li>Buscar notícias de M&A do último mês</li>
+                        <li>Extrair informações detalhadas sobre as transações</li>
+                        <li>Organizar os dados em formato de tabela</li>
+                        <li>Exportar os resultados para análise posterior</li>
+                    </ul>
+                    <div class="cta-button">
+                        <a href="#guia-busca" class="btn">Começar a Busca</a>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Configurações de Busca</h3>
+                    <form id="search-config">
+                        <div class="form-group">
+                            <label for="period">Período de Busca:</label>
+                            <select id="period" name="period">
+                                <option value="30" selected>Último Mês</option>
+                                <option value="7">Última Semana</option>
+                                <option value="90">Último Trimestre</option>
+                                <option value="180">Último Semestre</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Fontes:</label>
+                            <div class="checkbox-group">
+                                <div class="checkbox">
+                                    <input type="checkbox" id="source-pipeline" name="sources" value="pipeline" checked>
+                                    <label for="source-pipeline">Pipeline Valor</label>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="checkbox" id="source-valor" name="sources" value="valor" checked>
+                                    <label for="source-valor">Valor Econômico</label>
+                                </div>
+                                <div class="checkbox">
+                                    <input type="checkbox" id="source-fusoes" name="sources" value="fusoes" checked>
+                                    <label for="source-fusoes">Fusões e Aquisições</label>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="sector">Setor (opcional):</label>
+                            <input type="text" id="sector" name="sector" placeholder="Ex: Tecnologia, Saúde, Varejo">
+                        </div>
+                    </form>
+                </div>
+            </section>
+
+            <section id="guia-busca">
+                <h2>Guia de Busca</h2>
+                
+                <div class="accordion">
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>Pipeline Valor <i class="fas fa-chevron-down"></i></h3>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="steps">
+                                <div class="step">
+                                    <div class="step-number">1</div>
+                                    <div class="step-content">
+                                        <h4>Acesse o site</h4>
+                                        <p>Visite <a href="https://pipelinevalor.globo.com/" target="_blank">https://pipelinevalor.globo.com/</a></p>
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <div class="step-number">2</div>
+                                    <div class="step-content">
+                                        <h4>Utilize a barra de pesquisa</h4>
+                                        <p>Busque por termos como "fusão", "aquisição", "compra", "M&A"</p>
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <div class="step-number">3</div>
+                                    <div class="step-content">
+                                        <h4>Filtre por período</h4>
+                                        <p>Selecione notícias do último mês (ou período configurado)</p>
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <div class="step-number">4</div>
+                                    <div class="step-content">
+                                        <h4>Analise cada notícia relevante</h4>
+                                        <p>Abra a notícia completa e extraia as informações necessárias:</p>
+                                        <ul>
+                                            <li>Data da transação</li>
+                                            <li>Empresa compradora</li>
+                                            <li>Empresa adquirida</li>
+                                            <li>Valor da transação</li>
+                                            <li>Múltiplo (se disponível)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tips">
+                                <h4>Dicas específicas:</h4>
+                                <ul>
+                                    <li>O Pipeline Valor geralmente apresenta análises detalhadas de transações</li>
+                                    <li>Preste atenção a gráficos e tabelas que podem conter informações sobre múltiplos</li>
+                                    <li>Verifique a seção de comentários de especialistas para insights adicionais</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>Valor Econômico <i class="fas fa-chevron-down"></i></h3>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="steps">
+                                <div class="step">
+                                    <div class="step-number">1</div>
+                                    <div class="step-content">
+                                        <h4>Acesse o site</h4>
+                                        <p>Visite <a href="https://valor.globo.com/" target="_blank">https://valor.globo.com/</a></p>
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <div class="step-number">2</div>
+                                    <div class="step-content">
+                                        <h4>Utilize a barra de pesquisa</h4>
+                                        <p>Busque por termos como "fusão", "aquisição", "compra", "M&A"</p>
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <div class="step-number">3</div>
+                                    <div class="step-content">
+                                        <h4>Filtre por período</h4>
+                                        <p>Selecione notícias do último mês (ou período configurado)</p>
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <div class="step-number">4</div>
+                                    <div class="step-content">
+                                        <h4>Analise cada notícia relevante</h4>
+                                        <p>Abra a notícia completa e extraia as informações necessárias:</p>
+                                        <ul>
+                                            <li>Data da transação</li>
+                                            <li>Empresa compradora</li>
+                                            <li>Empresa adquirida</li>
+                                            <li>Valor da transação</li>
+                                            <li>Múltiplo (se disponível)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tips">
+                                <h4>Dicas específicas:</h4>
+                                <ul>
+                                    <li>O Valor Econômico frequentemente inclui análises financeiras detalhadas</li>
+                                    <li>Procure por termos como "enterprise value" ou "equity value"</li>
+                                    <li>Verifique a seção de empresas para notícias organizadas por setor</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion-item">
+                        <div class="accordion-header">
+                            <h3>Fusões e Aquisições <i class="fas fa-chevron-down"></i></h3>
+                        </div>
+                        <div class="accordion-content">
+                            <div class="steps">
+                                <div class="step">
+                                    <div class="step-number">1</div>
+                                    <div class="step-content">
+                                        <h4>Acesse o site</h4>
+                                        <p>Visite <a href="https://fusoesaquisicoes.com/" target="_blank">https://fusoesaquisicoes.com/</a></p>
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <div class="step-number">2</div>
+                                    <div class="step-content">
+                                        <h4>Navegue pela seção de notícias</h4>
+                                        <p>Ou utilize a barra de pesquisa com termos relevantes</p>
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <div class="step-number">3</div>
+                                    <div class="step-content">
+                                        <h4>Filtre por período</h4>
+                                        <p>Selecione notícias do último mês (ou período configurado)</p>
+                                    </div>
+                                </div>
+                                <div class="step">
+                                    <div class="step-number">4</div>
+                                    <div class="step-content">
+                                        <h4>Analise cada notícia relevante</h4>
+                                        <p>Abra a notícia completa e extraia as informações necessárias:</p>
+                                        <ul>
+                                            <li>Data da transação</li>
+                                            <li>Empresa compradora</li>
+                                            <li>Empresa adquirida</li>
+                                            <li>Valor da transação</li>
+                                            <li>Múltiplo (se disponível)</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="tips">
+                                <h4>Dicas específicas:</h4>
+                                <ul>
+                                    <li>Este site é especializado em M&A, então as informações tendem a ser mais específicas</li>
+                                    <li>Verifique a seção de "Deals" para transações organizadas cronologicamente</li>
+                                    <li>Preste atenção a análises setoriais que podem contextualizar os múltiplos</li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="card">
+                    <h3>Dicas para Extração de Informações</h3>
+                    <div class="tips-grid">
+                        <div class="tip-card">
+                            <div class="tip-icon"><i class="far fa-calendar-alt"></i></div>
+                            <h4>Data da Transação</h4>
+                            <p>Geralmente encontrada no início ou final da notícia. Pode ser a data do anúncio ou do fechamento da transação.</p>
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-icon"><i class="fas fa-building"></i></div>
+                            <h4>Empresas Envolvidas</h4>
+                            <p>Busque por descrições das empresas, incluindo setor de atuação, tamanho e histórico.</p>
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-icon"><i class="fas fa-dollar-sign"></i></div>
+                            <h4>Valor da Transação</h4>
+                            <p>Procure por cifras (R$ ou US$) seguidas de valores. Atenção a termos como "enterprise value" ou "equity value".</p>
+                        </div>
+                        <div class="tip-card">
+                            <div class="tip-icon"><i class="fas fa-chart-pie"></i></div>
+                            <h4>Múltiplos</h4>
+                            <p>Aparecem como "x vezes o EBITDA", "x vezes a receita". Também podem ser expressos como percentuais do faturamento.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="tabela-dados">
+                <h2>Tabela de Dados</h2>
+                
+                <div class="card">
+                    <h3>Registro de Transações de M&A</h3>
+                    <p>Utilize esta tabela para registrar as transações encontradas durante sua pesquisa.</p>
+                    
+                    <div class="table-controls">
+                        <button id="add-row" class="btn"><i class="fas fa-plus"></i> Adicionar Transação</button>
+                        <button id="export-csv" class="btn"><i class="fas fa-file-export"></i> Exportar CSV</button>
+                        <button id="copy-table" class="btn"><i class="fas fa-copy"></i> Copiar Tabela</button>
+                        <button id="clear-table" class="btn btn-danger"><i class="fas fa-trash"></i> Limpar Dados</button>
+                    </div>
+                    
+                    <div class="table-container">
+                        <table id="ma-table">
+                            <thead>
+                                <tr>
+                                    <th>Data</th>
+                                    <th>Empresa Compradora</th>
+                                    <th>Empresa Adquirida</th>
+                                    <th>Valor da Transação</th>
+                                    <th>Múltiplo</th>
+                                    <th>Ações</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Linhas serão adicionadas via JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <h3>Instruções para Preenchimento</h3>
+                    <ul>
+                        <li><strong>Data:</strong> Formato DD/MM/AAAA</li>
+                        <li><strong>Empresa Compradora:</strong> Nome e breve descrição</li>
+                        <li><strong>Empresa Adquirida:</strong> Nome e breve descrição</li>
+                        <li><strong>Valor da Transação:</strong> Incluir moeda (R$ ou US$)</li>
+                        <li><strong>Múltiplo:</strong> Formato "Xx EBITDA" ou "Não divulgado"</li>
+                    </ul>
+                    <p>Os dados são salvos automaticamente no seu navegador e estarão disponíveis quando você retornar ao site.</p>
+                </div>
+            </section>
+
+            <section id="sobre">
+                <h2>Sobre</h2>
+                
+                <div class="card">
+                    <h3>Sobre esta Ferramenta</h3>
+                    <p>A ferramenta M&A Brasil foi desenvolvida para facilitar a busca e organização de notícias de fusões e aquisições no Brasil. Ela serve como um guia estruturado para pesquisar informações em fontes confiáveis e organizar os dados encontrados de forma sistemática.</p>
+                    
+                    <h4>Propósito</h4>
+                    <p>O objetivo principal é auxiliar profissionais, pesquisadores e interessados no mercado de M&A a:</p>
+                    <ul>
+                        <li>Acompanhar as transações recentes no mercado brasileiro</li>
+                        <li>Extrair informações relevantes de forma padronizada</li>
+                        <li>Organizar os dados para análise posterior</li>
+                        <li>Identificar tendências e padrões no mercado de fusões e aquisições</li>
+                    </ul>
+                    
+                    <h4>Fontes de Dados</h4>
+                    <p>As fontes recomendadas foram selecionadas por sua credibilidade e cobertura abrangente do mercado de M&A brasileiro:</p>
+                    <ul>
+                        <li><strong>Pipeline Valor:</strong> Especializado em notícias de negócios e transações corporativas</li>
+                        <li><strong>Valor Econômico:</strong> Principal jornal de economia e negócios do Brasil</li>
+                        <li><strong>Fusões e Aquisições:</strong> Site especializado em transações de M&A</li>
+                    </ul>
+                    
+                    <h4>Privacidade</h4>
+                    <p>Todos os dados inseridos são armazenados apenas localmente no seu navegador (localStorage). Nenhuma informação é enviada para servidores externos.</p>
+                </div>
+                
+                <div class="card">
+                    <h3>Atualizações e Melhorias</h3>
+                    <p>Esta ferramenta está em constante evolução. Sugestões para melhorias são sempre bem-vindas.</p>
+                    <p>Versão atual: 1.0 (Abril 2025)</p>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 M&A Brasil - Ferramenta de Busca de Notícias de Fusões e Aquisições</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
